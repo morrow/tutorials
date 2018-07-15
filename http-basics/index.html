@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> HTTP Basics </title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="basics.css" />
+    </head>
+    <body>
+        <h1>HTTP Basics</h1>
+        <form id="review" action="#" onsubmit="return false;">
+            <h2> Terms <button onclick="shuffleTerms();"> Shuffle </button></h2>
+            <ul id="terms">
+                <li>
+                    <span class="question">HTTP</span>
+                    <span class="answer">Hyper Text Transfer Protocol - a protocol or language which determines how browsers and servers communicate </span>
+                </li>
+                <li>
+                    <span class="question">DNS</span>
+                    <span class="answer">Domain Name Service</span>
+                </li>
+                <li>
+                    <span class="question">Request body </span>
+                    <span class="answer">Usually blank, but can contain data you are sending to the server.</span>
+                </li>
+                <li>
+                    <span class="question">Request headers</span>
+                    <span class="answer">The portion of the request that determines how the server should respond.</span>
+                </li>
+                <li>
+                    <span class="question">Response headers </span>
+                    <span class="answer">The portion of the response which tells the client how the server responded.</span>
+                </li>
+                <li>
+                    <span class="question">Response Body</span>
+                    <span class="answer">If successful, the content of the requested resource</span>
+                </li>
+                <li>
+                    <span class="question">HTTP Status Code</span>
+                    <span class="answer">numerical code (200, 404, 403) which tells the client the status of the response.</span>
+                </li>
+                <li>
+                    <span class="question">IP Address</span>
+                    <span class="answer">Internet Protocol Address - a number like 65.45.34.123 which is an address for a specific computer or network of computers.</span>
+                </li>
+                <li>
+                    <span class="question">Client</span>
+                    <span class="answer">A device which communicates with a server using a protocol such as HTTP</span>
+                </li>
+                <li>
+                    <span class="question">Server</span>
+                    <span class="answer">A specializedz computer which in the purpose of HTML, responds to client requests. </span>
+                </li>
+                <li>
+                    <span class="question">Domain Name</span>
+                    <span class="answer">A name like "google.com" which resolves to an IP address using DNS</span>
+                </li>
+                <li>
+                    <span class="question">Protocol</span>
+                    <span class="answer">A language which determines how computers can speak to each other.</span>
+                </li>
+                <li>
+                    <span class="question">Parse</span>
+                    <span class="answer">Interpret meaning from data given a specific grammer.  A browser will parse HTML to display a web-site.</span>
+                </li>
+            </ul>
+            <h2> Topics </h2>
+            <ol id="topics">
+                <li>
+                    <input id="http-protocol" name="http-protocol" type="checkbox" />
+                    <label for="http-protocol"> HTTP protocol </label>
+                    <ol class="sub-topics">
+                        <li class="t-explanation">
+                            <p> <strong>HTTP</strong> is a <em>protocol</em> (language) that computers can speak with each other. </p>
+                            <p> It consists basically of a client <em>request message:</em> </p>
+                            <pre> client: "Hi" </pre>
+                            <p> and a server <em>response message</em>: </p>
+                            <pre> server: "Hello!" </pre>
+                            <hr />
+                            <strong> Request </strong>
+                            <p> A request consists of <strong> request headers </strong>, which include
+                            <em>request method</em>, 
+                            the <em> resource location, </em>
+                            the <em> protocol, </em>
+                            the <em> host</em>, 
+                            and sometimes a <strong> request body </strong>.
+                            <p> An actual HTTP request might look something like this: </p>
+<!-- crazy indentation here because pre displays everything, including whitespace -->
+<pre>
+GET /index.html HTTP/1.1
+Host: www.example.com
+</pre>
+<!-- end crazy indentation -->
+                            <p> Where <em>GET</em> is the method, 
+                            <em> /index.html </em> is the url of the resource, 
+                            <em> HTTP/1.1 </em> is the protocol to use,
+                            and <em> Host: www.example.com </em> is the server to send the request to.
+                            <p> (There is no request body for this example) </p>
+                            <p> An example of a POST request with a <em> request body: </em> </p>
+<!-- crazy indentation here because pre displays everything, including whitespace -->
+<pre>
+POST /login.php HTTP/1.1
+Host: www.example.com
+
+name=joe&password=test123
+</pre>
+<!-- end crazy indentation -->
+                            <p> Where <em>POST</em> is the method, 
+                            <em> /login.php </em> is the url of the resource, 
+                            <em> HTTP/1.1 </em> is the protocol to use,
+                            <em> Host: www.example.com </em> is the server to send the request to, and 
+                            <em> name=joe@password=test123 </em> is the <em> request body </em>, 
+                            <span> which is seperated from the <em> request headers </em> by a blank line. </span>
+                            <p> In summary, these are called the <em> request headers</em>.
+                            <p> There are <a href="http://en.wikipedia.org/wiki/List_of_HTTP_header_fields" target="_blank">additional headers</a> you can specify, like requested language and content-type. </p>
+                            <p> The request method <em> GET </em> is one of several <em>HTTP methods</em> or <em>HTTP verbs</em>.</p>
+                            <p> These verbs define how the server should respond to the request. </p>
+                            <p> The important methods are: </p>
+                            <p> <em> GET </em> 'gets' the requested resource.  This is the majority of requests. </p>
+                            <p> <em> POST </em> 'posts' information to the requested resource.  This is uploads, logins, registrations, posts, comments etc.  Generally whenever you are sending information to the server. </p>
+                            <p> Other commonly used methods: </p>
+                            <pre> HEAD, PUT, DELETE </pre>
+                            <p> Other methods you probably won't need to know: </p>
+                            <pre> OPTIONS, TRACE, CONNECT </pre>
+                            <p> The request message is sent to the server, and will hopefully result in a <em>response</em>. </p>
+                            <hr />
+                            <strong> Response </strong>
+                            <p> A server response consists of <em> response headers </em> and usually a <em> response body </em>.
+                            <p> A typical <em>response</em> will look like this: </p>
+<!-- crazy indentation here because pre displays everything, including whitespace -->
+<pre>
+HTTP/1.1 200 OK
+Date: Mon, 23 May 2005 22:38:34 GMT
+Server: Apache/1.3.3.7 (Unix) (Red-Hat/Linux)
+Last-Modified: Wed, 08 Jan 2003 23:11:55 GMT
+Etag: "3f80f-1b6-3e1cb03b"
+Accept-Ranges: bytes
+Content-Length: 438
+Connection: close
+Content-Type: text/html; charset=UTF-8
+
+&lt!DOCTYPE html>...
+</pre>             
+<!-- end crazy indentation -->           
+                            <p> With the above being the <em> response headers </em>, and the <em>response body, </em> 
+                            <em> &lt!DOCTYPE html>, </em> begins after a blank line below the headers.  This will be the content of the resource you requested (some HTML, an image, etc) depending on request method and resource availablity. </p>
+                            <p> An important thing to learn from this is this part: </p>
+                            <pre> 200 OK </pre>
+                            <p> This is an <em>HTTP Status Code</em> </p>
+                            <p> HTTP status codes tell us briefly what the result of the <em>request</em> was.</p>
+                            <p> The important codes and their definitions are: </p>
+                            <ul class="important">
+                                <li> 200 - <em>OK</em> request was completed successfully </li>
+                                <li> 301 - request is <em>permanently redirected</em> to somewhere else </li>
+                                <li> 302 - request is <em>temporarily redirected</em> to somewhere else </li>
+                                <li> 304 - response has <em>not changed</em> </li>
+                                <li> 403 - <em>forbidden</em> from accessing the resource </li>
+                                <li> 404 - requested resource was <em>not found</em> </li>
+                                <li> 500 - some <em>internal error</em> completing the request </li>
+                                <li> <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank"> more </a> </li>
+                            </ul>
+                            <p> The requesting software will then take the response and do something with it, such as generate a web-page from the HTML in the response, or play a video. </p>   
+                        </li>
+                        <li>
+                            <a href="http://simple.wikipedia.org/wiki/HTTP" target="_blank"> http://simple.wikipedia.org/wiki/HTTP </a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en/HTTP" target="_blank"> https://developer.mozilla.org/en/HTTP </a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <input id="client-server" name="client-server" type="checkbox" />
+                    <label for="client-server"> Client / Server </label>
+                    <ol class="sub-topics">
+                        <li class="t-explanation">
+                            <p> Briefly, the <em>client/server</em> relationship is defined by </p>
+                            <p> 
+                                A <strong>client</strong> which can be any device capable of communicating in <em> HTTP </em>,
+                                or any of <a href="http://en.wikipedia.org/wiki/Internet_protocol_suite" target="_blank">the other protocols.</a> </p>
+                            <p> And a <strong> server </strong> which can be any device or devices capable of responding to client communications. </p>
+                            <p> 
+                                For the purposes of websites, this relationship generally refers to a client being a <strong> web-browser </strong>
+                                of some sort (could be on a computer, a phone, whatever), and a <strong> web-server </strong> which theoretically could
+                                also be any device, but will most like be a special type of computer called a <em> server </em> (or several servers). </p>
+                        </li>
+                        <li>
+                            <a href="http://en.wikipedia.org/wiki/Client%E2%80%93server_model" target="_blank">http://en.wikipedia.org/wiki/Client%E2%80%93server_model</a>
+                        </li>
+                        <li>
+                            <a href="http://computer.howstuffworks.com/web-server4.htm" target="_blank"> http://computer.howstuffworks.com/web-server4.htm </a>
+                        </li>
+                        <li>
+                            <a href="http://simple.wikipedia.org/wiki/Internet_Protocol" target="_blank"> http://simple.wikipedia.org/wiki/Internet_Protocol </a>
+                        </li>
+                        <li>
+                            <a href="http://simple.wikipedia.org/wiki/DNS" target="_blank"> http://simple.wikipedia.org/wiki/DNS </a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <input id="browser-web-server" name="browser-web-server" type="checkbox" />
+                    <label for="browser-web-server"> Browser / Web Server </label>
+                    <ol class="sub-topics">
+                        <li class="t-explanation">
+                            <p>
+                                As described above, the <em> web-browser </em> / <em> web-server </em> 
+                                relationship is a specific type of <em> client </em> / <em> server </em>
+                                relationship.
+                            </p>
+                            <p> In general, a <em>web-browser</em> will communicate with a <em>web-server</em> using <em>HTTP</em> </p>
+                            <p> The browser will both make the request and parse (display) the response. </p>
+                            <p> How the browser knows which server to contact is by a system called <a href="http://simple.wikipedia.org/wiki/DNS" target="_blank"> <strong> DNS </strong> </a></p>
+                            <p> This basically transforms a <em> domain-name </em> like "google.com" into an <em> IP-Address </em> like 65.45.34.123 </p>
+                            <p> Your browser only sends the domain-name portion of the request in HTTP (like above) - the DNS part is done after the request leaves your browser.</p>
+                            <p> After the appropriate server is contacted, it generates an HTTP <em>response </em> and sends it back to your browser </p>
+                            <p> Your browser receives as a <em> HTTP response </em> and then chooses what to do with it. </p>
+                            <p> In a case where you are downloading a web-page, the <em> response-body </em> will consist of HTML, so your browser will <em>parse</em> and display that. </p>
+                        </li>
+                        <li>
+                            <a href="http://en.wikipedia.org/wiki/Parsing" target="_blank">http://en.wikipedia.org/wiki/Parsing</a>
+                        </li>
+                        <li>
+                            <a href="http://simple.wikipedia.org/wiki/Web_browser" target="_blank"> http://simple.wikipedia.org/wiki/Web_browser </a>
+                        </li>
+                        <li>
+                            <a href="http://simple.wikipedia.org/wiki/Web_server" target="_blank">http://simple.wikipedia.org/wiki/Web_server</a>
+                        </li>
+                    </ol>
+                </li>
+                <li style='display:none'>
+                    <input id="markup-languages" name="markup-languages" type="checkbox" />
+                    <label for="markup-languages"> Markup Languages, HTML and XHTML </label>
+                    <ol class="sub-topics">
+                        <li>
+                            <a href="http://simple.wikipedia.org/wiki/HTML" target="_blank"> http://simple.wikipedia.org/wiki/HTML </a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en/HTML" target="_blank"> https://developer.mozilla.org/en/HTML </a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en/HTML/HTML5" target="_blank"> https://developer.mozilla.org/en/HTML/HTML5 </a>
+                        </li>
+                        <li>
+                            <a href="http://simple.wikipedia.org/wiki/XHTML" target="_blank"> http://simple.wikipedia.org/wiki/XHTML </a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en/XHTML" target="_blank"> https://developer.mozilla.org/en/XHTML </a>
+                        </li>
+                    </ol>
+                </li>
+                <li style='display:none'>
+                    <input id="markup-tags" name="markup-tags" type="checkbox" />
+                    <label for="markup-tags"> Markup tags and CSS </label>
+                    <ol class="sub-topics">
+                        <li>
+                            <a href="http://simple.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank"> http://simple.wikipedia.org/wiki/Cascading_Style_Sheets </a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en/CSS" target="_blank"> https://developer.mozilla.org/en/CSS </a>
+                        </li>
+                    </ol>
+                </li>
+                <li style='display:none'>
+                    <input id="javascript" name="javascript" type="checkbox" />
+                    <label for="javascript"> Client side scripting (javascript) </label>
+                    <ol class="sub-topics">
+                        <li>
+                            <a href="http://simple.wikipedia.org/wiki/JavaScript" target="_blank"> http://simple.wikipedia.org/wiki/JavaScript </a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en/JavaScript" target="_blank"> https://developer.mozilla.org/en/JavaScript </a>
+                        </li>
+                    </ol>
+                </li>
+            </ol>    
+        </form>
+        <!-- Don't worry about how the script below works, just know that this is what they mean by client-side scripting -->
+        <script type="text/javascript" src="basics.js"></script>
+        <script type="text/javascript">
+            // Every mouse click, update the document
+            document.body.addEventListener( 'click', updateDocument );
+            // Update document when page has loaded
+            document.body.onload = function() { updateDocument( 'load' ); }
+        </script>
+        <!-- Scripts conventionally go at the end of the page as well.  You can put them at the beginning, but it may cause slower loading time / problems in some cases -->
+    </body>
+</html>

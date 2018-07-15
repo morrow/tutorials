@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JavaScript Sandbox</title>
+  <meta charset="utf-8" />
+  <style>
+    @import url("jshint.css");
+    @import url("sandbox.css");
+    @import url("codemirror/lib/codemirror.css");
+    @import url("codemirror/theme/monokai.css");
+  </style>
+</head>
+<body>
+  <ul id="examples">
+    <li>Examples:</li>
+  </ul>
+  <div id="main">
+    <center style="border-bottom:1px solid #eee;padding-bottom:5px;">
+      <button id="evaluate">Begin Evaluating</button>
+    </center>
+    <textarea id="input" placeholder="Enter some javascript here"></textarea>
+    <pre id="output">And the result will be displayed over here.</pre>
+  </div>
+</body>
+<script type="text/javascript" src="jshint.js"></script>
+<script type="text/javascript" src="sandbox.js"></script>
+<script type="text/javascript" src="sandbox-examples.js"></script>
+<script src="codemirror/lib/codemirror.js"></script>
+<script src="codemirror/mode/javascript/javascript.js"></script>
+</html>

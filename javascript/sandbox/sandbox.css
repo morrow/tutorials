@@ -1,0 +1,96 @@
+html, body {
+  background:#eee;
+  font-family:monospace;
+}
+#main {
+  width:1000px;
+  height:700px;
+  background:white;
+  border:1px solid #eee;
+  margin:30px auto;
+  padding:5px;
+}
+
+#input, #output {
+  display:inline-block;
+  vertical-align: top;
+  width:46%;
+  margin:0px;
+  padding:15px;
+  height:670px;
+  border-size:2px;
+  font-size:13px;
+  overflow:auto;
+}
+
+#input, #input:focus, #input:active {
+  line-height:1.3em;
+  outline:none;
+  border-color:white;
+  border-right-color:#eee;
+}
+
+#output {
+  /*color:green;*/
+}
+
+#output.error {
+/*  color:red;*/
+}
+
+#output hr {
+  margin:15px 0px;
+  opacity:.7;
+}
+
+.CodeMirror {
+  width:50%;
+  display:inline-block;
+  border-right:2px solid #eee;
+}
+.CodeMirror, .CodeMirror-scroll {
+  height:99% !important;
+}
+
+.CodeMirror pre {
+  margin-left:3px !important;
+}
+
+#examples {
+  display: block;
+  width:300px;
+  margin:20px auto;
+  padding:0px;
+  background:white;
+  padding:5px;
+}
+
+#examples li {
+  list-style-type:none;
+  margin:0px;
+  padding:5px;
+  cursor:pointer;
+}
+#examples li:hover {
+  background:#eee;
+}
+#examples li:before {
+  content:" - ";
+}
+#examples li:first-child {
+  font-weight:bold;
+}
+#examples li:first-child:before {
+  content:"";
+}
+
+#evaluate {
+  text-align:center;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:0.8em;
+  margin:0.5em;
+  padding:0.5em;
+  border-radius:3px;
+  background:linear-gradient(to bottom, #eee, #bbb);
+}

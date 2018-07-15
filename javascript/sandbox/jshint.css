@@ -1,0 +1,27 @@
+#errors {
+  font-weight:normal;
+}
+
+#errors i:first-child {
+  color:red;
+  font-size:1.3em;
+  font-weight:bold;
+  font-style:normal;
+  opacity:10;
+}
+#errors p  {
+  padding:5px;
+}
+#errors p.evidence {
+  background:#FEE9CC;
+  font-weight:bold;
+}
+#errors, #functions {
+  margin-top:15px;
+  padding-top:15px;
+  border-top:1px dashed #ccc;
+}
+
+#functions i {
+  font-weight:normal;
+}

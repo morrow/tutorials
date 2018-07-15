@@ -1,0 +1,145 @@
+html {
+	background:whiteSmoke;
+}
+body {
+	background:white;
+	font-family:verdana;
+	font-size:15px;
+	margin: 20px auto;
+	max-width:950px;
+	border:2px solid #ddd;
+}
+
+/* 
+	> means only apply this to direct children of body, * means every element
+	so in summary, the selector is "every element that is a direct child of body"
+ */
+body > * {
+	margin:10px 20px;
+}
+
+button {
+	cursor:pointer;
+}
+
+a, a:visited {
+	color:#555;
+}
+
+h2, h3, h4, h5, h6 {
+	font-family:arial;
+}
+
+h1 {
+	margin:0px;
+	padding:1em;
+	text-align:center;
+	background:#74BE8D;
+	border:2px solid #52AD70;
+	color:white;
+	text-shadow:2px 2px 0px rgba(0,0,0,.3);
+	letter-spacing:.1em;
+	margin-top:-2px;
+	margin-left:-2px;
+	margin-right:-2px;
+}
+
+h2 {
+	margin-bottom:0px;
+	text-shadow:1px 1px 0px rgba(0,0,0,.3);
+}
+
+hr {
+	opacity: 0.3;
+}
+
+em {
+	color:#74BE8D;
+}
+
+ol {
+	list-style-type:decimal;
+}
+
+ol ol {
+	list-style-type:lower-alpha;
+}
+
+/* hide complete sub-lists */
+ol .complete ol {
+	display: none;
+}
+
+ol ol ol {
+	list-style-type:lower-roman;
+}
+
+pre {
+	background:whiteSmoke;
+	padding:.5em;
+	display: block;
+	overflow: auto;
+}
+
+#topics {
+	/* to prevent elements from taking up the width of the page */
+	display:inline-block;
+}
+
+#topics li {
+	margin-top:.5em;			
+}
+
+#topics li input {
+	display:inline-block;
+}
+
+/* not sure if I covered this, but if you want more multiple elements to share styling, you can simply add it on after a comma */
+#topics li input, #topics li label {
+	cursor:pointer;
+}
+
+#topics li label {
+	color:#09f;
+	display:inline-block;
+	padding:1em;
+}
+
+/* :hover is a pseudo-class, in this case, it's the styling that takes effect when you hover over the element */
+#topics li label:hover {
+	background:#eee;
+}
+
+/* asterik (*) selector selects _everything_ that is a child (of .complete in this case) */
+.complete * {
+	font-style:italic;
+	/* important overrides any conflicting color schemes.  In this case, it's necessary because * is more generic than #topics li label, which wins because of specificity.  */
+	color:green !important;
+}
+
+/* after pseudo-element */
+.complete:after {
+	content: "✓";
+	font-size:18px;
+	color:green;
+}
+
+.t-explanation {
+	border:1px dashed #ccc;
+	padding:3px 20px;
+	display: block;
+	width:700px;
+}
+
+.important {
+	padding-top:10px;
+	padding-bottom:10px;
+	font-weight:bold;
+	background:whiteSmoke;
+}
+
+#terms li { color:white;}
+#terms li .question { color:black !important;}
+#terms li .answer { color:inherit; font-size:70%; }
+#terms li .answer:before { content: " -- ";}
+#terms li:hover { color:black; }
